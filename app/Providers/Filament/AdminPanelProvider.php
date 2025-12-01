@@ -57,7 +57,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentShieldPlugin::make(),
                 FilamentLanguageSwitcherPlugin::make()->locales([
-                    ['code' => 'es', 'name' => 'Español', 'flag' => 'es'],
+                    ['code' => 'es', 'name' => 'Español', 'flag' => 'cl'],
                     ['code' => 'en', 'name' => 'English', 'flag' => 'gb'],
                 ]),
             ])
