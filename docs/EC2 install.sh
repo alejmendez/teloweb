@@ -129,6 +129,14 @@ WantedBy=multi-user.target
 sudo systemctl enable octane
 sudo systemctl restart octane
 
+php artisan make:filament-user
+php artisan shield:generate --all --panel=admin
+php artisan shield:super-admin --user=1 --panel=admin
+
+php artisan filament:optimize
+composer install --optimize-autoloader --no-dev
+composer dump-autoload
+php artisan optimize
 
 # Base de datos
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
