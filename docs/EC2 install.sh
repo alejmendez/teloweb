@@ -72,6 +72,14 @@ server {
     gzip_comp_level 6;
     gzip_types text/plain text/css text/xml application/json application/javascript application/xml+rss application/atom+xml image/svg+xml;
 
+    # Cacheo de archivos estáticos (CSS, JS, Imágenes, Fuentes)
+    # Vite genera nombres con hash, así que podemos cachear por largo tiempo sin miedo.
+    location ~* \.(jpg|jpeg|gif|png|ico|css|js|woff|woff2|ttf|svg|eot|webp)$ {
+        expires 1y;
+        add_header Cache-Control "public, no-transform";
+        access_log off;
+    }
+
     # Certificados SSL
     ssl_certificate /etc/letsencrypt/live/telochile.cl/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/telochile.cl/privkey.pem;
